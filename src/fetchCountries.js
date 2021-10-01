@@ -7,7 +7,7 @@ const fetchCountries = name => {
     fetch(`https://restcountries.com/v2/name/${name}?fields=name,capital,population,flag,languages`)
       //wymienic link
       .then(response => {
-        console.log('response', response);
+        console.log('fetchCountries response', response);
         if (!response.ok) {
           throw new Error('fetchCountries response error', response.status);
         }
