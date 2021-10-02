@@ -23,29 +23,57 @@ const findCountry = () => {
   // sprawdzajace logi
   // console.log('findCountry - name:', name);
   // console.log(
-  //   'findCountry - tu sie drukuje promise(pending) - fetchCountries(name):',
-  //   fetchCountries(name),
-  // );
+  //     'findCountry - tu sie drukuje promise(pending) - fetchCountries(name):',
+  //     fetchCountries(name),
+  //   );
 
   fetchCountries(name)
-  .then(data => console.log('albo tu sa potrzebne dane:', data))
-  // .then(data => console.log('same name?', data[0].name))
-  // .then(data => renderCountryList(data))
-    .catch(error => console.log('error fetchCountries wywolanie:', error));
+    // .then(data => console.log('albo tu sa potrzebne dane:', data)) // nie moze byc 2 thenow  z data? albo ten albo render, bo ten nic nie zwraca?
+
+    // .then(data => renderList(data))
+    // .then(data => renderInfo(data))
+    .then(data => {
+      console.log('albo tu sa potrzebne dane:', data);
+      renderInfo(data);
+    })
+
+    .catch(error => console.log('error fetchCountries:', error));
 };
 
+// const renderList = (data) => {
+//   const markup = data
+//   .map(d => {
+//     return `<li>
+//       <p><b>Name</b>: ${d.name}</p>
+//       <p><b>Email</b>: ${d.email}</p>
+//           <p><b>Company</b>: ${d.company.name}</p>
+//           </li>`;
+//         })
+//     .join('');
+//     countryList.innerHTML = markup;
+// }
 
-const renderCountryList = (data) => {
+const renderInfo = data => {
   const markup = data
-  .map(d => {
-    return `<li>
-      <p><b>Name</b>: ${d.name}</p>
-      <p><b>Email</b>: ${d.email}</p>
-          <p><b>Company</b>: ${d.company.name}</p>
-          </li>`;
-        })
+    .map(d => {
+      return `<img class="info__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" height="35">
+      <span class="${d.name}">${d.name}</span>
+      <p><b>Capital</b>: ${d.capital}</p>
+      <p><b>Population</b>: ${d.population}</p>
+      <p><b>Languages</b>: ${d.languages[0].name}</p>`;
+    })
     .join('');
-    countryList.innerHTML = markup;
-  }
-  
-  searchBox.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY));
+  console.log(markup);
+  countryList.innerHTML = markup;
+};
+
+searchBox.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY));
+
+////////////////////////////////////////////////////
+// logi z fetch countries - nie wszystkie dzialaja
+// .then(data => console.log(data))
+// console.log('same name?', data[0].name))
+// .then(data => console.log('same name?', data[0].name))
+// .then(data => data.forEach(d => console.log(d.name)))
+// .then(data => console.log(data[0]))
+////////////////////////////////////////////////////
