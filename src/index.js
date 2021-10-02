@@ -35,23 +35,21 @@ const findCountry = () => {
     .then(data => {
       console.log('albo tu sa potrzebne dane:', data);
       renderInfo(data);
+      renderList(data);
     })
 
     .catch(error => console.log('error fetchCountries:', error));
 };
 
-// const renderList = (data) => {
-//   const markup = data
-//   .map(d => {
-//     return `<li>
-//       <p><b>Name</b>: ${d.name}</p>
-//       <p><b>Email</b>: ${d.email}</p>
-//           <p><b>Company</b>: ${d.company.name}</p>
-//           </li>`;
-//         })
-//     .join('');
-//     countryList.innerHTML = markup;
-// }
+const renderList = (data) => {
+  const markup = data
+  .map(d => {
+    return `<li><img class="list__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" height="35"></li>
+      <li class="list__name">${d.name}</li>`;
+        })
+    .join('');
+    countryList.innerHTML = markup;
+}
 
 const renderInfo = data => {
   const markup = data
@@ -64,7 +62,7 @@ const renderInfo = data => {
     })
     .join('');
   console.log(markup);
-  countryList.innerHTML = markup;
+  countryInfo.innerHTML = markup;
 };
 
 searchBox.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY));
