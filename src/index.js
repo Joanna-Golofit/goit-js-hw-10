@@ -34,8 +34,16 @@ const findCountry = () => {
     // .then(data => renderInfo(data))
     .then(data => {
       console.log('albo tu sa potrzebne dane:', data);
-      renderInfo(data);
-      renderList(data);
+      console.log('ilosc', data.length);
+      if (data.length > 10) {
+        Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+      } else if (data.length >= 2 && data.length <= 10) {
+        renderList(data);        
+      } else {
+        renderInfo(data);
+
+      }
+      
     })
 
     .catch(error => console.log('error fetchCountries:', error));
@@ -48,11 +56,9 @@ const renderList = (data) => {
       <img class="list__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" >
       <p class="list__name">${d.name}</p>
     </li>`;
-    // return `<li class="list__item"><img class="list__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" height="35"></li>
-    //   <li class="list__item"><p class="list__name">${d.name}</p></li>`;
-        })
-    .join('');
-    countryList.innerHTML = markup;
+  })
+  .join('');
+  countryList.innerHTML = markup;
 }
 
 const renderInfo = data => {
@@ -65,17 +71,20 @@ const renderInfo = data => {
       <p class="info__data"><b>Languages</b>: ${d.languages.map(language => " " + language.name)}</p>`;
     })
     .join('');
-  console.log(markup);
-  countryInfo.innerHTML = markup;
-};
-
-searchBox.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY));
-
-////////////////////////////////////////////////////
-// logi z fetch countries - nie wszystkie dzialaja
-// .then(data => console.log(data))
+    countryInfo.innerHTML = markup;
+  };
+  
+  searchBox.addEventListener('input', debounce(findCountry, DEBOUNCE_DELAY));
+  
+  ////////////////////////////////////////////////////
+  // logi z fetch countries - nie wszystkie dzialaja
+  // .then(data => console.log(data))
 // console.log('same name?', data[0].name))
 // .then(data => console.log('same name?', data[0].name))
 // .then(data => data.forEach(d => console.log(d.name)))
 // .then(data => console.log(data[0]))
 ////////////////////////////////////////////////////
+// druga wersja z renderList
+// return `<li class="list__item"><img class="list__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" height="35"></li>
+//   <li class="list__item"><p class="list__name">${d.name}</p></li>`;
+// console.log(markup);
