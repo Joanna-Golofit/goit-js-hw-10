@@ -44,8 +44,12 @@ const findCountry = () => {
 const renderList = (data) => {
   const markup = data
   .map(d => {
-    return `<li><img class="list__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" height="35"></li>
-      <li class="list__name">${d.name}</li>`;
+    return `<li class="list__item">
+      <img class="list__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" >
+      <p class="list__name">${d.name}</p>
+    </li>`;
+    // return `<li class="list__item"><img class="list__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" height="35"></li>
+    //   <li class="list__item"><p class="list__name">${d.name}</p></li>`;
         })
     .join('');
     countryList.innerHTML = markup;
@@ -54,11 +58,11 @@ const renderList = (data) => {
 const renderInfo = data => {
   const markup = data
     .map(d => {
-      return `<img class="info__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" height="35">
-      <span class="${d.name}">${d.name}</span>
-      <p><b>Capital</b>: ${d.capital}</p>
-      <p><b>Population</b>: ${d.population}</p>
-      <p><b>Languages</b>: ${d.languages[0].name}</p>`;
+      return `<img class="info__flag" src="${d.flag}" alt="Flag of ${d.name}" width="55" >
+      <span class="info__name">${d.name}</span>
+      <p class="info__data"><b>Capital</b>: ${d.capital}</p>
+      <p class="info__data"><b>Population</b>: ${d.population}</p>
+      <p class="info__data"><b>Languages</b>: ${d.languages[0].name}</p>`;
     })
     .join('');
   console.log(markup);
