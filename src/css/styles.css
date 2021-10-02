@@ -30,27 +30,26 @@ body {
   li.list__item {
     display: flex;
     align-items: center;
-
-    /* justify-content: center; */
   }
 
- img.list__flag {}
+ /* img.list__flag {} */
 
  p.list__name {
    /* color: red; */
-   padding-left: 10px;
+   padding-left: 15px;
    margin-top: 10px;
    margin-bottom: 10px;
  }
  
  /* renderInfo */
 
- div.country-info {}
- img.info__flag {}
+ /* div.country-info {}
+ img.info__flag {} */
  span.info__name {
    font-size: 45px;
-
+   padding-left: 15px;
  }
+
  p.info__data {
    font-size: 21px;
 

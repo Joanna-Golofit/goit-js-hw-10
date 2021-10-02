@@ -62,7 +62,7 @@ const renderInfo = data => {
       <span class="info__name">${d.name}</span>
       <p class="info__data"><b>Capital</b>: ${d.capital}</p>
       <p class="info__data"><b>Population</b>: ${d.population}</p>
-      <p class="info__data"><b>Languages</b>: ${d.languages[0].name}</p>`;
+      <p class="info__data"><b>Languages</b>: ${d.languages.map(language => " " + language.name)}</p>`;
     })
     .join('');
   console.log(markup);
