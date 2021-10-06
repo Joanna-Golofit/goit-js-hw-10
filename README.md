@@ -1,53 +1,29 @@
-# Parcel boilerplate
+# HW 11
 
-## Скрытые файлы
 
-Включите отображение скрытых файлов и папок в проводнике своей операционной системы, иначе вы не
-сможете выбрать и скопировать себе файлы настроек проекта, имена которых начинаются с точки.
+## General info
+It's a frontend of an application to search for country details by full or a partial name.
 
-## Зависимости
+## Technologies
 
-На компьютере должена быть установлена LTS-версия [Node.js](https://nodejs.org/en/) со всеми
-дополнительными инструментами кроме **Chocolatey** - его ставить не нужно.
+### Project is created with:
 
-## Перед началом работы
+- HTML & CSS
 
-Один раз на проект установить все зависимости.
+- JavaScript
 
-```shell
-npm ci
-```
+- fetch
 
-### Разработка
+- Notiflix library
 
-Запустить режим разработки.
+- API Rest Countries v2
 
-```shell
-npm run dev
-```
+- lodash.debounce
 
-Во вкладке браузера перейти по адресу [http://localhost:1234](http://localhost:1234).
 
-### Деплой
 
-Сборка будет автоматически собирать и деплоить продакшен версию проекта на GitHub Pages, в ветку
-`gh-pages`, каждый раз когда обновляется ветка `main`. Например, после прямого пуша или принятого
-пул-реквеста. Для этого необходимо в файле `package.json` отредактировать поле `homepage` и скрипт
-`build`, заменив `имя_пользователя` и `имя_репозитория` на свои.
 
-```json
-"homepage": "https://имя_пользователя.github.io/имя_репозитория",
-"scripts": {
-  "build": "parcel build src/*.html --public-url /имя_репозитория/"
-},
-```
 
-На всякий случай стоит зайти в настройки репозитория `Settings` > `Pages` и убедиться что продакшен
-версии файлов раздаются из папки `/root` ветки `gh-pages`.
-
-Через какое-то время живую страницу можно будет посмотреть по адресу указанному в отредактированном
-свойстве `homepage`, например
-[https://goitacademy.github.io/parcel-project-template](https://goitacademy.github.io/parcel-project-template).
 
 ## Файлы и папки
 
