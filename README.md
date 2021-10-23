@@ -19,3 +19,5 @@ It's a frontend of an application to search for country details by full or a par
 - API Rest Countries v2
 
 - lodash.debounce
+
+https://github.com/goitacademy/javascript-homework/blob/main/v2/10/README.pl.md
