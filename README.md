@@ -2,7 +2,7 @@
 
 
 ## General info
-It's a frontend of an application to search for country details by full or a partial name.
+:orange_circle: It's a frontend of an application to search for country details by full or a partial name.
 
 ## Technologies
 
@@ -22,4 +22,4 @@ It's a frontend of an application to search for country details by full or a par
 
 ### Criteria
 
-https://github.com/goitacademy/javascript-homework/blob/main/v2/10/README.pl.md
+[link](https://github.com/goitacademy/javascript-homework/blob/main/v2/10/README.pl.md)
