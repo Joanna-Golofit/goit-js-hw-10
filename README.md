@@ -5,6 +5,7 @@
 
 :orange_circle: It's a frontend of an application to search for country details by full or a partial name.
 
+
 ## Technologies
 
 ### Project is created with:
